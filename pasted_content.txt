@@ -1,0 +1,53 @@
+Build a real-time multiplayer web game inspired by Skribbl.io (draw and guess), 
+but with power-ups and extra features. It should work on both desktop and mobile browsers.
+
+CORE GAMEPLAY
+- Players join via a room code or invite link. No account needed, just a nickname and avatar choice.
+- Host can create public or private rooms and set: number of rounds (2-10), draw time (30-120s), 
+  max players (2-12), word difficulty, and custom word list.
+- Each round, one player is the drawer and picks 1 of 3 random words. 
+  Everyone else guesses in a chat box.
+- Scoring: faster correct guesses earn more points. The drawer earns points 
+  based on how many players guessed correctly.
+- Hints: letters are revealed gradually as time runs out. 
+  Close guesses show a "You're close!" message only to that player.
+- Players who guessed correctly can't see or leak the answer in chat.
+- Final podium screen with rankings, plus a "Play again" button.
+
+DRAWING TOOLS
+- Brush with multiple sizes, color palette, eraser, fill bucket, undo, and clear canvas.
+- Smooth real-time canvas syncing for all players (WebSockets).
+
+POWER-UPS (earned through correct guesses or streaks, one use per round)
+- Reveal Letter: reveals one random letter of the word.
+- Double Points: doubles your points for the next correct guess.
+- Time Freeze: pauses the timer for 10 seconds.
+- Blackout: briefly blurs other players' hints/chat noise to help you focus. (or invent a fun alternative)
+- Shield: protects your score from a sabotage power-up.
+- Sabotage (drawer-side): Shake Canvas, which briefly wobbles the drawing for guessers.
+- Show power-up icons in a clear bar with cooldowns and fun animations.
+
+EXTRAS
+- Emoji reactions players can send during a round (floating reactions on screen).
+- Streak bonus for consecutive correct guesses.
+- Daily/weekly themes (Animals, Movies, Food, Gaming) as word packs.
+- Sound effects and a mute toggle.
+- Optional "Chaos Mode" where random events happen (reversed colors, mirrored canvas, tiny brush only).
+- Kick/vote-kick and report option for abusive players, plus a basic profanity filter in chat.
+- Reconnect support if someone's connection drops mid-game.
+
+UI / DESIGN
+- Bright, playful, colorful style with smooth animations. Dark mode toggle.
+- Layout: player list with scores on the left, canvas in the center, chat on the right 
+  (stacked vertically on mobile).
+- Clear timer, round counter, and word-hint display at the top.
+
+TECH
+- Frontend: React (or similar) with a responsive layout.
+- Backend: Node.js with Socket.IO for real-time rooms.
+- Keep game state on the server to prevent cheating (the word is never sent to guessers).
+- Include a word list file with at least 500 words across several categories.
+- Make it easy to deploy, and give me the live link when done.
+
+Please plan the architecture first, build a working version with the core game 
+and 4 power-ups, test it with multiple browser tabs, then add the extras.

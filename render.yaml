@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: doodle-duel-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: pnpm install --frozen-lockfile
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: ALLOWED_ORIGINS
+        sync: false
